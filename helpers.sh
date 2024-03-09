@@ -135,4 +135,7 @@ cleanup() {
     find ~/ccm -type d -name node_modules -exec rm -r {} \;
     rm -r $HOME/.terraform.d/plugin-cache/registry.terraform.io/hashicorp/aws/*
     docker system prune -a -f
+    sudo journalctl --vacuum-time=2d
+    sudo apt-get clean
+    npm cache clean --force
 }
