@@ -4,29 +4,6 @@
   become_user: ubuntu
   gather_facts: false
   tasks:
-    - name: Copy the dvwa template
-      copy:
-        src: dvwa.yml
-        dest: $HOME/dvwa.yml
-
-    - name: Use kubectl to deploy the dvwa service
-      shell: kubectl apply -f dvwa.yml >> dvwa.txt
-      args:
-        chdir: $HOME
-        creates: dvwa.txt
-
-    - name: Copy the mutillidae template
-      copy:
-        src: mutillidae.yml
-        dest: $HOME/mutillidae.yml
-
-    - name: Use kubectl to deploy the mutillidae service
-      shell: kubectl apply -f mutillidae.yml >> mutillidae.txt
-      args:
-        chdir: $HOME
-        creates: mutillidae.txt
-
-
     - name: Copy the webgoat template
       copy:
         src: webgoat.yml

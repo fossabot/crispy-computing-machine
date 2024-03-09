@@ -5,10 +5,10 @@
   tasks:
     - name: Copy the financial occult manifest over
       copy:
-        src: fo.yml
-        dest: $HOME/fo.yml
+        src: black.yml
+        dest: $HOME/black.yml
     - name: Use kubectl to deploy financial occult
-      shell: kubectl apply -f fo.yml >> fo.txt
+      shell: kubectl apply -f black.yml >> black.txt
       args:
         chdir: $HOME
-        creates: fo.txt
+        creates: black.txt

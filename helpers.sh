@@ -23,6 +23,7 @@ load_secrets() {
   check_deps
   export AWS_PROFILE=iot4
   export DO_PAT=$(pass DO_API_TOKEN)
+  export DO_REGISTRY_DOCKERCONFIG=$(pass do/registry/dockerconfigjson)
   export SLACK_WEBHOOK_VPN=$(pass slack/webhook/vpn)
   export SLACK_WEBHOOK_DARKNET=$(pass slack/webhook/darknet)
   export ATLANTIS_WEBHOOK_SECRET=$(pass atlantis_webhook_secret)

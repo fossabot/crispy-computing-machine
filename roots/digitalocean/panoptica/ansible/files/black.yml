@@ -2,61 +2,56 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: leza
+  name: black
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   tls:
    - hosts:
-     - leza.do.iot4.net
-     secretName: leza-cert
+     - black.do.iot4.net
+     secretName: black-cert
   rules:
-  - host: "leza.do.iot4.net"
+  - host: "black.do.iot4.net"
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: leza
+            name: black
             port:
               number: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: leza
+  name: black
 spec:
   ports:
   - port: 80
-    targetPort: 3000
+    targetPort: 80
   selector:
-    app: leza
+    app: black
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: leza
+  name: black
 spec:
   selector:
     matchLabels:
-      app: leza
+      app: black
   replicas: 2
   template:
     metadata:
       labels:
-        app: leza
+        app: black
     spec:
       containers:
-      - name: leza
-        image: vchokshi/leza:fc3ede0
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+      - name: black
+        image: registry.digitalocean.com/do/black:12a79b8
+        imagePullSecrets:
+        - name: registry-do
         ports:
-        - containerPort: 3000
+        - containerPort: 80

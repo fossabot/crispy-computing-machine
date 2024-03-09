@@ -1,0 +1,14 @@
+---
+- hosts: worker-0.do.iot4.net
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Add apache2 web server on worker-0 using apt
+      apt:
+        name: apache2
+        update_cache: yes
+        state: present
+    - name: Transfer over our index.html file
+      copy:
+        src: index.html
+        dest: /var/www/html
