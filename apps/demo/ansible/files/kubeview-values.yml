@@ -23,10 +23,10 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: "kubeview.do.vchokshi.com"
+    - host: "kubeview.do.iot4.net"
   tls:
     - hosts:
-      - kubeview.do.vchokshi.com
+      - kubeview.do.iot4.net
       secretName: kuveview-cert
 
   className: "nginx"

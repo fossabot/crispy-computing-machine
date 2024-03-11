@@ -33,6 +33,9 @@
 - name: Import and execute the docsi playbook
   ansible.builtin.import_playbook: do_csi.yml
 
+- name: Import and execute the hello-kubernetes test playbook
+  ansible.builtin.import_playbook: hello-kubernetes.yml
+
 - name: Import and execute the kubeview playbook
   ansible.builtin.import_playbook: kubeview.yml
 
@@ -57,8 +60,8 @@
 - name: Import and execute the viharc app
   ansible.builtin.import_playbook: viharc.yml
 
-    #- name: Import and execute the leza app
-    #ansible.builtin.import_playbook: leza.yml
+- name: Import and execute the leza app
+  ansible.builtin.import_playbook: leza.yml
 
 - name: Import and execute the workerers work
   ansible.builtin.import_playbook: workerers.yml
