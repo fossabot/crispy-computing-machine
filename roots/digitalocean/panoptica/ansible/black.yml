@@ -3,7 +3,7 @@
   become: yes
   become_user: ubuntu
   tasks:
-    - name: Copy the financial occult manifest over
+    - name: Copy the black manifest over
       copy:
         src: black.yml
         dest: $HOME/black.yml
