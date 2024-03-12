@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import routes from './components/pages/index'
 
 function App() {
-  
+
   return (
       <BrowserRouter >
         {
@@ -12,7 +12,7 @@ function App() {
           ))
         }
       </BrowserRouter>
-     
+
   );
 }
 
